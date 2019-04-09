@@ -86,12 +86,12 @@ class Mdns {
 
     if ( discoveryCallbacks != null ) {
       //Configure all the discovery related callbacks and event channels
-      _serviceResolvedChannel.receiveBroadcastStream().listen((Map data) {
+      _serviceResolvedChannel.receiveBroadcastStream().listen((data) {
         print("Service resolved ${data.toString()}");
         discoveryCallbacks.onResolved(ServiceInfo.fromMap(data));
       });
 
-      _serviceDiscoveredChannel.receiveBroadcastStream().listen((Map data) {
+      _serviceDiscoveredChannel.receiveBroadcastStream().listen((data) {
         print("Service discovered ${data.toString()}");
         discoveryCallbacks.onDiscovered(ServiceInfo.fromMap(data));
       });
