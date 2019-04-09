@@ -96,7 +96,7 @@ class Mdns {
         discoveryCallbacks.onDiscovered(ServiceInfo.fromMap(data));
       });
 
-      _discoveryRunningChannel.receiveBroadcastStream().listen((bool running) {
+      _discoveryRunningChannel.receiveBroadcastStream().listen((running) {
         print("Discovery Running? $running");
         if (running && discoveryCallbacks.onDiscoveryStarted != null) {
           discoveryCallbacks.onDiscoveryStarted();
